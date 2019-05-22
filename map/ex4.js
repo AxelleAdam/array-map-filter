@@ -1,32 +1,23 @@
 /* Array.prototype.map - Exercice 4
-
 Ecrire une fonction getCirclesProperties, qui prend en entrée un tableau de nombres (entiers ou non),
 représentant les rayons de cercles, et calcule, pour chacun, la circonférence et la surface de ces cercles.
-
 Formules pour les calculs :
 * Ciconférence  =  2 * Pi * rayon
 * Diamètre      =  Pi * rayon * rayon
-
 En JavaScript, la valeur de Pi est donnée par Math.PI.
 Comme on n'a pas besoin d'une très grande précision en sortie,
 il t'est demandé de ramener chaque valeur calculée à trois chiffres
 après la virgule, en utilisant la méthode toFixed des nombres (Google est ton ami).
-
 La fonction devra retourner, pour chaque rayon du tableau d'entrée, un objet ayant cette "forme":
 {
   radius: R,
   circumference: C
   surface: S
 }
-
 où R est le rayon donné en entrée, C et S les valeurs que tu dois calculer.
-
 Exemple de tableau d'entrée :
-
 [1, 3, 4.5, 7]
-
 Tableau de sortie correspondant (toFixed transforme les nombres en chaînes)
-
 [
   {
     radius: 1,
@@ -52,8 +43,16 @@ Tableau de sortie correspondant (toFixed transforme les nombres en chaînes)
 */
 
 function getCirclesProperties(radiuses) {
+  return radiuses.map((entry) => {
+    let values = {
+      radius: entry,
+      circumference: (Math.PI * entry * 2).toFixed(3),
+      surface: (Math.PI * entry * entry).toFixed(3)
+    };
+    return values;
+  });
 }
-
+getCirclesProperties([1, 3, 4.5, 7])
 
 
 // Ne pas modifier l'export
